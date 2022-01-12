@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonWrapper, NavWrapper } from "../../common/Navbar/styled";
+import { ButtonWrapper } from "../../common/Navbar/styled";
 import {
   AvatarImage,
   Button,
@@ -10,7 +10,7 @@ import {
   HeaderWrapper,
   ImageWrapper,
   InfoWrapper,
-  ProfileWrapper,
+  ProfileWrapper
 } from "./styled";
 
 export default function ProfileHeader() {
@@ -39,9 +39,6 @@ export default function ProfileHeader() {
               <Button>Chỉnh sửa trang cá nhân</Button>
             </ButtonWrapper>
           </DetailWrapper>
-          <NavWrapper>
-            <h3>Để ý chỗ này nè nhóc ác</h3>
-          </NavWrapper>
         </HeaderWrapper>
       </ProfileWrapper>
     </>

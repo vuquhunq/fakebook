@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../../common/Navbar/Navbar";
-import Articles from "../../components/Articles/Articles";
+import Article from "../../containers/Article/Article";
 
 const ArticleWrapper = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Navbar />
       <ArticleWrapper>
-        <Articles home />
+        <Article />
       </ArticleWrapper>
     </>
   );

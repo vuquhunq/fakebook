@@ -92,8 +92,8 @@ export const InfoWrapper = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   margin: 2rem 0;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: cetner;
+  align-items: center;
 `;
 export const Button = styled.button`
   color: white;
@@ -104,7 +104,7 @@ export const Button = styled.button`
   font-size: .9rem;
   border: none;
   outline: none;
-  margin: 0 .2rem;
+  margin: 1rem .2rem;
   font-weight: bolder;
   height: 36px;
 `;

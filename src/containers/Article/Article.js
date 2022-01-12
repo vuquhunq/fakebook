@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Articles from "../../components/Articles/Articles";
+import Create from "../../components/Create/Create";
 import {
-    ArticleCreate, ArticleWrapper,
-    Button,
-    ContentWrapper,
-    CreateButton,
-    StaticFileWrapper
+  ArticleCreate,
+  ArticleWrapper,
+  Button,
+  ContentWrapper,
+  CreateButton,
+  StaticFileWrapper,
 } from "./styled";
 
 export default function Article() {
+  const [isCreate, setIsCreate] = useState(false);
+  const closeCreate = () => {
+    setIsCreate(!isCreate);
+  };
   return (
     <>
+      {isCreate ? <Create closeCreate={closeCreate} /> : <></>}
       <ArticleWrapper>
         <ArticleCreate>
           <ContentWrapper>
@@ -23,7 +30,7 @@ export default function Article() {
               }}
               alt="Ảnh đại diện"
             />
-            <CreateButton onClick={()=>console.log("Hello World")}>
+            <CreateButton onClick={closeCreate}>
               Bạn đang nghĩ gì?
             </CreateButton>
           </ContentWrapper>
@@ -33,7 +40,7 @@ export default function Article() {
             <Button>Sự kiện trong đời</Button>
           </StaticFileWrapper>
         </ArticleCreate>
-            <Articles />
+        <Articles />
       </ArticleWrapper>
     </>
   );
