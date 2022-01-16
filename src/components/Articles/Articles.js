@@ -1,7 +1,13 @@
 import React from "react";
-import { ArticleContent, ArticleImage, ArticleList, CommentList, UserInfo } from "./styled";
+import {
+  ArticleContent,
+  ArticleImage,
+  ArticleList,
+  CommentList,
+  UserInfo,
+} from "./styled";
 
-export default function Articles() {
+export default function Articles({ article, user }) {
   return (
     <>
       <ArticleList>
@@ -15,9 +21,9 @@ export default function Articles() {
             }}
             alt="Ảnh đại diện"
           />
-          <h4>Quang Hưng</h4>
+          <h4>{user.public_name}</h4>
         </UserInfo>
-        <ArticleContent>nội dung trong này</ArticleContent>
+        <ArticleContent>{article.content}</ArticleContent>
         <ArticleImage>
           <img
             src="https://picsum.photos/400/2"

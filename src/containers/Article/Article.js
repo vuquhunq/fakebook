@@ -10,7 +10,7 @@ import {
   StaticFileWrapper,
 } from "./styled";
 
-export default function Article() {
+export default function Article({ userArticle, user }) {
   const [isCreate, setIsCreate] = useState(false);
   const closeCreate = () => {
     setIsCreate(!isCreate);
@@ -30,9 +30,7 @@ export default function Article() {
               }}
               alt="Ảnh đại diện"
             />
-            <CreateButton onClick={closeCreate}>
-              Bạn đang nghĩ gì?
-            </CreateButton>
+            <CreateButton onClick={closeCreate}>Bạn đang nghĩ gì?</CreateButton>
           </ContentWrapper>
           <StaticFileWrapper>
             <Button>Video trực tiếp</Button>
@@ -40,7 +38,13 @@ export default function Article() {
             <Button>Sự kiện trong đời</Button>
           </StaticFileWrapper>
         </ArticleCreate>
-        <Articles />
+        {userArticle ? (
+          userArticle.map((e) => (
+            <Articles key={e.article_id} article={e} user={user} />
+          ))
+        ) : (
+          <h3>Không có bài viết nào</h3>
+        )}
       </ArticleWrapper>
     </>
   );

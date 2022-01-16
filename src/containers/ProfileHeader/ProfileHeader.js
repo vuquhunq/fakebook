@@ -1,8 +1,8 @@
 import React from "react";
-import { ButtonWrapper } from "../../common/Navbar/styled";
 import {
   AvatarImage,
   Button,
+  ButtonWrapper,
   CoverImage,
   CoverWrapper,
   DetailUserWrapper,
@@ -10,10 +10,10 @@ import {
   HeaderWrapper,
   ImageWrapper,
   InfoWrapper,
-  ProfileWrapper
+  ProfileWrapper,
 } from "./styled";
 
-export default function ProfileHeader() {
+export default function ProfileHeader({ userDetail }) {
   return (
     <>
       <ProfileWrapper>
@@ -30,7 +30,7 @@ export default function ProfileHeader() {
                 />
               </ImageWrapper>
               <InfoWrapper>
-                <h1>Quang Hưng</h1>
+                <h1>{userDetail.public_name}</h1>
                 <h5>16 bạn bè</h5>
               </InfoWrapper>
             </DetailUserWrapper>

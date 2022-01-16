@@ -8,7 +8,7 @@ export const NavBar = styled.div`
   z-index: 9;
   top: 0;
   background-color: rgb(36, 37, 38);
-  box-shadow: 0 0 1rem rgb(36, 37, 38);
+  box-shadow: 0 0 1rem rgb(26, 27, 28);
 `;
 export const NavWrapper = styled.div`
   display: flex;
@@ -29,18 +29,25 @@ export const ButtonWrapper = styled.div`
     height: 40px;
     border-radius: 50%;
   }
+  & button {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+  }
 `;
 export const SearchWrapper = styled.div`
   display: flex;
-  align-item: center;
+  flex-directon: column;
   width: 20%;
   height: 40px;
-  margin-left: 0.5rem;
+  padding: 0 .5rem;
 `;
 export const SearchText = styled.input`
   padding: 0 1rem;
   width: 100%;
   min-width: 180px;
+  max-width: 300px;
   height: 40px;
   border-radius: 2rem;
   border: none;
@@ -76,3 +83,24 @@ export const ProfileWrapper = styled.div`
   color: white;
   gap: 5px;
 `;
+export const DropMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  & button {
+    margin: 1rem 0;
+    padding: 0.5rem 4rem;
+    font-size: 1rem;
+    margin-right: 8px;
+    display: block;
+    background: white;
+    color: black;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+`;
+export const UserDropdown = styled.div`
+  display: flex;
+  postion: relative;
+`
