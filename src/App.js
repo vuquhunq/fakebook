@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { user } from "./config/config";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
+import Page404 from "./pages/Error/Page404";
 import Friends from "./pages/Friends/Friends";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
@@ -26,7 +27,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home userDetail={userDetail} />} />
         <Route path="/friends" element={<Friends userDetail={userDetail} />} />
-        <Route path="/profile/:username" element={<Profile userDetail={userDetail} />} />
+        <Route
+          path="/profile/:username"
+          element={<Profile userDetail={userDetail} />}
+        />
+        <Route path="/oops" element={<Page404 />} />
       </Routes>
     </>
   );

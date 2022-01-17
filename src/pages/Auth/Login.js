@@ -14,6 +14,7 @@ import {
 
 export default function Login() {
   const [isRegister, setisRegister] = useState(false);
+  const [isError, setIsError] = useState("");
   const usernameInput = useRef(null);
   const passwordInput = useRef(null);
   const history = useNavigate();
@@ -21,7 +22,15 @@ export default function Login() {
     e.preventDefault();
     const username = usernameInput.current.value;
     const password = passwordInput.current.value;
-    authService.login(username, password);
+    authService
+      .login(username, password)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("accessToken", res.data.user.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        window.location = "/home";
+      })
+      .catch((err) => setIsError(err));
   };
   if (accessToken) {
     history("/home");
@@ -34,7 +43,20 @@ export default function Login() {
           <AuthHeader>
             <h3>Đăng nhập</h3>
           </AuthHeader>
-          <form onSubmit={Login}>
+          <form
+            onSubmit={() => {
+              if (!usernameInput.current.value) {
+                alert("Nhập thông tin người dùng");
+              }
+              if (!passwordInput.current.value) {
+                alert("Nhập thông tin người dùng");
+              }
+              Login();
+              if (isError) {
+                alert("Tài khoản không tồn tại");
+              } else;
+            }}
+          >
             <InputWrapper>
               <TextInput
                 type="text"

@@ -7,20 +7,12 @@ export class AuthService {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "WWW-Authenticate": "Basic realm=" + "Login required!",
         Authorization: "Basic " + window.btoa(`${username}:${password}`),
       },
       username,
       password,
-    })
-      .then((res) => {
-        localStorage.setItem("accessToken", res.data.user.token);
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        window.location = "/home";
-      })
-      .catch((err) => {
-        alert(err);
-        window.location = "/";
-      });
+    });
   };
   register = async (username, password, public_name, phone, email) => {
     return axios

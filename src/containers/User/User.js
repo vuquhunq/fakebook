@@ -1,6 +1,7 @@
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import UserList from "../../components/UserList";
 import { userService } from "../../services/UserService";
@@ -51,7 +52,9 @@ const InputSearch = styled.div`
 `;
 export default function User({ closeSearch }) {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
   const [filterUser, setfilterUser] = useState([]);
+  const [UserText, setUserText] = useState();
   const [textSearch, setTextSearch] = useState("");
   useEffect(() => {
     userService
@@ -64,14 +67,19 @@ export default function User({ closeSearch }) {
       users.filter((e) => {
         if (textSearch === "") {
           return null;
-        } else
+        }
+        if (textSearch === e.user_name) {
+          setUserText(e.user_id);
           return e.user_name
             .toLowerCase()
             .includes(textSearch.toLocaleLowerCase());
+        }
+        return e.user_name
+          .toLowerCase()
+          .includes(textSearch.toLocaleLowerCase());
       })
     );
   }, [textSearch, users]);
-  console.log(filterUser);
   return (
     <SearchWrapper>
       <InputSearch>
@@ -83,6 +91,15 @@ export default function User({ closeSearch }) {
           placeholder="Tìm kiếm trên fakebook"
           value={textSearch}
           onChange={(e) => setTextSearch(e.target.value)}
+          autoFocus
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              if (!filterUser) {
+                return;
+              }
+              else navigate(`/profile/${UserText}`);
+            }
+          }}
         />
       </InputSearch>
       {filterUser ? (
