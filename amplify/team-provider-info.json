@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fakebook-dev-191529-authRole",
+      "UnauthRoleArn": "arn:aws:iam::063791730429:role/amplify-fakebook-dev-191529-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::063791730429:role/amplify-fakebook-dev-191529-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fakebook-dev-191529-deployment",
+      "UnauthRoleName": "amplify-fakebook-dev-191529-unauthRole",
+      "StackName": "amplify-fakebook-dev-191529",
+      "StackId": "arn:aws:cloudformation:us-east-1:063791730429:stack/amplify-fakebook-dev-191529/a781b0a0-0825-11ed-b5fd-0ab51a6e60b9",
+      "AmplifyAppId": "d2l9m6fhhh784d"
+    },
+    "categories": {
+      "auth": {
+        "fakebookd1deb060": {}
+      }
+    }
+  }
+}
